@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0e3a2f"/>
+      <stop offset="100%" stop-color="#041812"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#faecc5"/>
+      <stop offset="40%" stop-color="#d4af37"/>
+      <stop offset="80%" stop-color="#aa821d"/>
+      <stop offset="100%" stop-color="#fdf4d7"/>
+    </linearGradient>
+  </defs>
+  <circle cx="50" cy="50" r="48" fill="url(#bg)" stroke="url(#gold)" stroke-width="2.5"/>
+  <!-- Royal Crown / Diamond -->
+  <path d="M26 62 L32 38 L42 50 L50 32 L58 50 L68 38 L74 62 Z" fill="url(#gold)"/>
+  <rect x="26" y="65" width="48" height="5" rx="2.5" fill="url(#gold)"/>
+  <circle cx="50" cy="27" r="3" fill="#fdf4d7"/>
+  <circle cx="32" cy="34" r="2.5" fill="#fdf4d7"/>
+  <circle cx="68" cy="34" r="2.5" fill="#fdf4d7"/>
+</svg>

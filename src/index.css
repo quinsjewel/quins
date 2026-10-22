@@ -1,0 +1,455 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   QUINS - ROYAL IMITATION JEWELLERY DESIGN SYSTEM
+   Theme: Royal Emerald, Imperial Ruby & Antique Gold
+   ========================================================================== */
+
+:root {
+  /* Color Tokens */
+  --royal-bg: #04130d;
+  --royal-surface: #071f16;
+  --royal-surface-card: #0b2a1f;
+  --royal-surface-hover: #103829;
+  --royal-surface-glass: rgba(8, 33, 24, 0.78);
+  --royal-border: rgba(212, 175, 55, 0.22);
+  --royal-border-hover: rgba(212, 175, 55, 0.55);
+
+  /* Gold System */
+  --gold-50: #fffdf5;
+  --gold-100: #fbf3d3;
+  --gold-200: #f6e6a6;
+  --gold-300: #edd274;
+  --gold-400: #e2ba41;
+  --gold-500: #d4af37; /* Core Royal Gold */
+  --gold-600: #b58c25;
+  --gold-700: #8c671b;
+  --gold-800: #664916;
+  
+  --gold-gradient: linear-gradient(135deg, #fef4cf 0%, #d4af37 50%, #a27b1c 100%);
+  --gold-shimmer: linear-gradient(90deg, transparent, rgba(254, 244, 207, 0.4), transparent);
+  --gold-glow: 0 0 24px rgba(212, 175, 55, 0.28);
+  --gold-glow-intense: 0 0 35px rgba(212, 175, 55, 0.45);
+
+  /* Emerald System */
+  --emerald-accent: #2ac38e;
+  --emerald-glow: rgba(42, 195, 142, 0.25);
+  --emerald-badge-bg: rgba(42, 195, 142, 0.14);
+  --emerald-badge-border: rgba(42, 195, 142, 0.35);
+
+  /* Ruby / Burgundy System */
+  --ruby-dark: #3b0a13;
+  --ruby-core: #881337;
+  --ruby-bright: #e11d48;
+  --ruby-badge-bg: rgba(225, 29, 72, 0.15);
+  --ruby-badge-border: rgba(225, 29, 72, 0.35);
+
+  /* WhatsApp Brand Green */
+  --wa-green: #25D366;
+  --wa-hover: #1ebd57;
+  --wa-glow: 0 4px 20px rgba(37, 211, 102, 0.4);
+
+  /* Neutral & Text */
+  --text-primary: #fcfbf7;
+  --text-secondary: #c5cec9;
+  --text-muted: #83968d;
+  --text-gold: #edd274;
+
+  /* Typography */
+  --font-royal: 'Cinzel', serif;
+  --font-serif: 'Cormorant Garamond', Garamond, Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Transitions */
+  --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.15s ease;
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--royal-bg);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--royal-bg);
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(21, 68, 51, 0.45) 0%, transparent 60%),
+    radial-gradient(circle at 100% 50%, rgba(136, 19, 55, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 0% 80%, rgba(212, 175, 55, 0.08) 0%, transparent 50%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--royal-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.6);
+}
+
+/* Typography Utilities */
+.font-royal {
+  font-family: var(--font-royal);
+  letter-spacing: 0.06em;
+}
+.font-serif {
+  font-family: var(--font-serif);
+}
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.gold-gradient-text {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.gold-subtle-glow {
+  text-shadow: 0 0 16px rgba(212, 175, 55, 0.4);
+}
+
+/* Buttons & Interactive Elements */
+.btn-gold {
+  background: var(--gold-gradient);
+  color: #0b1e15;
+  font-weight: 700;
+  font-family: var(--font-sans);
+  letter-spacing: 0.04em;
+  padding: 0.75rem 1.4rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+.btn-gold:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--gold-glow-intense);
+  filter: brightness(1.06);
+}
+.btn-gold:active:not(:disabled) {
+  transform: translateY(0);
+}
+.btn-gold:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  filter: grayscale(0.8);
+}
+
+.btn-whatsapp {
+  background: #25D366;
+  color: #ffffff;
+  font-weight: 700;
+  font-family: var(--font-sans);
+  letter-spacing: 0.03em;
+  padding: 0.75rem 1.4rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: var(--transition-smooth);
+  box-shadow: var(--wa-glow);
+  text-decoration: none;
+}
+.btn-whatsapp:hover:not(:disabled) {
+  background: var(--wa-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5);
+}
+.btn-whatsapp:active:not(:disabled) {
+  transform: translateY(0);
+}
+.btn-whatsapp:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  filter: grayscale(0.8);
+  box-shadow: none;
+}
+
+.btn-outline-gold {
+  background: transparent;
+  color: var(--gold-300);
+  border: 1px solid var(--royal-border);
+  padding: 0.75rem 1.4rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: var(--transition-smooth);
+}
+.btn-outline-gold:hover {
+  border-color: var(--gold-500);
+  background: rgba(212, 175, 55, 0.1);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* Glass Panels */
+.glass-panel {
+  background: var(--royal-surface-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--royal-border);
+  border-radius: 1rem;
+}
+
+.glass-card {
+  background: linear-gradient(180deg, rgba(11, 42, 31, 0.85) 0%, rgba(6, 26, 19, 0.95) 100%);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--royal-border);
+  border-radius: 1.25rem;
+  transition: var(--transition-smooth);
+  overflow: hidden;
+  position: relative;
+}
+.glass-card:hover {
+  border-color: var(--royal-border-hover);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.7), var(--gold-glow);
+  transform: translateY(-4px);
+}
+
+/* Badges */
+.badge-in-stock {
+  background: var(--emerald-badge-bg);
+  border: 1px solid var(--emerald-badge-border);
+  color: var(--emerald-accent);
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.badge-out-of-stock {
+  background: var(--ruby-badge-bg);
+  border: 1px solid var(--ruby-badge-border);
+  color: #fda4af;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.badge-gold {
+  background: rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  color: var(--gold-200);
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Animations */
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.dot-pulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulseDot 2s infinite ease-in-out;
+}
+
+@keyframes goldShine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+.shine-effect {
+  position: relative;
+  overflow: hidden;
+}
+.shine-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: skewX(-20deg);
+  pointer-events: none;
+}
+.shine-effect:hover::after {
+  animation: goldShine 1.2s infinite;
+}
+
+/* Modals */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 13, 9, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.95) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modal-content-animated {
+  animation: scaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Form Controls */
+.royal-input {
+  width: 100%;
+  background: rgba(4, 20, 14, 0.7);
+  border: 1px solid var(--royal-border);
+  color: var(--text-primary);
+  border-radius: 0.625rem;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  transition: var(--transition-smooth);
+  outline: none;
+}
+.royal-input:focus {
+  border-color: var(--gold-500);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+  background: rgba(4, 20, 14, 0.95);
+}
+
+/* Toggle Switch */
+.royal-toggle {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 26px;
+  cursor: pointer;
+}
+.royal-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.royal-slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: rgba(225, 29, 72, 0.3);
+  border: 1px solid rgba(225, 29, 72, 0.5);
+  transition: 0.3s;
+  border-radius: 26px;
+}
+.royal-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #ffffff;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+input:checked + .royal-slider {
+  background-color: rgba(42, 195, 142, 0.4);
+  border-color: var(--emerald-accent);
+}
+input:checked + .royal-slider:before {
+  transform: translateX(22px);
+  background-color: #2ac38e;
+}
+
+/* Multi-Image Upload Dropzone */
+.dropzone-container {
+  border: 2px dashed rgba(212, 175, 55, 0.35);
+  background: rgba(4, 20, 14, 0.6);
+  transition: all 0.25s ease;
+}
+.dropzone-container:hover {
+  border-color: var(--gold-500);
+  background: rgba(212, 175, 55, 0.05);
+}
+.dropzone-active {
+  border-color: #f7e6a1 !important;
+  background: rgba(212, 175, 55, 0.12) !important;
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.3) !important;
+}
+
+/* Image Zoom Hero Viewer */
+.zoom-hero-box {
+  overflow: hidden;
+  cursor: crosshair;
+}
+
+/* Responsive Video Player Container */
+.video-responsive-16-9 {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+.video-responsive-9-16 {
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+  aspect-ratio: 9 / 16;
+  margin-left: auto;
+  margin-right: auto;
+}
+
