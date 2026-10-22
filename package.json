@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "node run-dev.js --host",
-    "build": "node run-dev.js build",
-    "preview": "node run-dev.js preview"
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
     "canvas-confetti": "^1.9.4",
@@ -17,8 +17,6 @@
     "react-router-dom": "^6.30.6"
   },
   "devDependencies": {
-    "@rollup/rollup-darwin-x64": "^4.59.0",
-    "@rollup/wasm-node": "^4.59.0",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "@vitejs/plugin-react": "^4.3.4",
